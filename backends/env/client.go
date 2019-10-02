@@ -8,7 +8,7 @@ import (
 	"github.com/kelseyhightower/confd/log"
 )
 
-var replacer = strings.NewReplacer("/", "_")
+var replacer = strings.NewReplacer("/", "__")
 
 // Client provides a shell for the env client
 type Client struct{}
@@ -46,7 +46,7 @@ func transform(key string) string {
 	return strings.ToUpper(replacer.Replace(k))
 }
 
-var cleanReplacer = strings.NewReplacer("_", "/")
+var cleanReplacer = strings.NewReplacer("__", "/")
 
 func clean(key string) string {
 	newKey := "/" + key
