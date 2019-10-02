@@ -5,9 +5,6 @@ GIT_SHA=`git rev-parse --short HEAD || echo`
 build:
 	@echo "Building confd..."
 	@mkdir -p bin
-	@export GOOS=linux
-	@export GOARCH=amd64
-	@export CGO_ENABLED=0
 	@go build -ldflags "-s -w -X main.GitSHA=Env-patch:${GIT_SHA}" -o bin/confd .
 	@upx bin/confd
 
