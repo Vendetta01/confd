@@ -100,6 +100,9 @@ func initConfig() error {
 	// Update config from environment variables.
 	processEnv()
 
+	// Reread command line arguments to give them precendence
+	flag.Parse()
+
 	if config.SecretKeyring != "" {
 		kr, err := os.Open(config.SecretKeyring)
 		if err != nil {

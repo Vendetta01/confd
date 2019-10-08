@@ -1,4 +1,4 @@
-.PHONY: build install clean test integration dep release
+.PHONY: build install clean test integration dep release build-docker
 VERSION=`egrep -o '[0-9]+\.[0-9a-z.\-]+' version.go`
 GIT_SHA=`git rev-parse --short HEAD || echo`
 
@@ -7,6 +7,10 @@ build:
 	@mkdir -p bin
 	@go build -ldflags "-s -w -X main.GitSHA=Env-patch:${GIT_SHA}" -o bin/confd .
 	@upx bin/confd
+
+build-docker:
+	@echo "Building docker image..."
+	docker build -t confd .
 
 install:
 	@echo "Installing confd..."
