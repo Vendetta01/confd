@@ -1,0 +1,16 @@
+[template]
+src = "confd.toml.tmpl"
+dest = "/etc/confd/confd.toml"
+keys = [
+    "/conf/confd/backend",
+    "/conf/confd/client_cakeys",
+    "/conf/confd/client_cert",
+    "/conf/confd/client_key",
+    "/conf/confd/nodes",
+    "/conf/confd/scheme",
+    "/conf/confd/srv_domain",
+    "/conf/confd/watch",
+    "/conf/confd/onetime",
+    "/conf/confd/interval",
+    "/conf/confd/log_level",
+]
