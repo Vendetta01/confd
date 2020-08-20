@@ -8,7 +8,7 @@ RUN mkdir -p /etc/confd/conf.d && \
         mkdir -p /tmp/etc/confd/conf.d && \
         mkdir -p /tmp/etc/confd/templates
 
-COPY etc/confd/conf.d/confd.toml /tmp/etc/confd/conf.d/
-COPY etc/confd/templates/confd.toml.tmpl /tmp/etc/confd/templates/
+COPY etc/confd/conf.d/confd.toml /etc/confd/self_init/conf.d/
+COPY etc/confd/templates/confd.toml.tmpl /etc/confd/self_init/templates/
 
 

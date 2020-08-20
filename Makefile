@@ -1,4 +1,4 @@
-.PHONY: build install clean test integration dep release build-docker
+.PHONY: build install clean test integration dep release docker-build
 VERSION=`egrep -o '[0-9]+\.[0-9a-z.\-]+' version.go`
 GIT_SHA=`git rev-parse --short HEAD || echo`
 
@@ -8,7 +8,7 @@ build:
 	@go build -ldflags "-s -w -X main.GitSHA=Env-patch:${GIT_SHA}" -o bin/confd .
 	@upx bin/confd
 
-build-docker:
+docker-build:
 	@echo "Building docker image..."
 	docker build -t confd:build -f Dockerfile.build .
 	docker build -t confd -f Dockerfile.alpine .
