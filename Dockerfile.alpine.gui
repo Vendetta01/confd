@@ -1,5 +1,5 @@
-FROM alpine:latest as RELEASE
-LABEL de.podewitz.confd.maintainer="nils.podewitz@googlemail.com"
+FROM jlesage/baseimage-gui:alpine-3.12-glibc
+LABEL local.podewitz.confd-gui.maintainer="nils.podewitz@googlemail.com"
 
 COPY --from=confd:build /usr/local/bin/confd /usr/bin/confd
 RUN apk upgrade --no-cache musl

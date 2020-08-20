@@ -10,7 +10,9 @@ build:
 
 build-docker:
 	@echo "Building docker image..."
-	docker build -t confd .
+	docker build -t confd:build -f Dockerfile.build .
+	docker build -t confd -f Dockerfile.alpine .
+	docker build -t confd-gui -f Dockerfile.alpine.gui .
 
 install:
 	@echo "Installing confd..."
