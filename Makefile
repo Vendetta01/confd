@@ -13,6 +13,8 @@ docker-build:
 	docker build -t confd:build -f Dockerfile.build .
 	docker build -t confd -f Dockerfile.alpine .
 	docker build -t confd-gui -f Dockerfile.alpine.gui .
+	docker tag confd:latest npodewitz/confd:latest
+	docker tag confd-gui:latest npodewitz/confd-gui:latest
 
 install:
 	@echo "Installing confd..."
